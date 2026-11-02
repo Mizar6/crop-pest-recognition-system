@@ -147,7 +147,12 @@ npm run dev -- --port 5176
 
 ## 数据集
 
-> 为了仓库轻量，数据集单独放在 **Releases** 页下载（解压到 `datasets/` 即可训练）。
+**直接下载（GitHub Release v1.0）：**
+
+- [plantdiseases-30类.zip](https://github.com/Mizar6/crop-pest-recognition-system/releases/download/v1.0/plantdiseases-30.zip)（69 MB）
+- [pest101-101类.zip](https://github.com/Mizar6/crop-pest-recognition-system/releases/download/v1.0/pest101-101.zip)（324 MB）
+
+> 为保持仓库轻量，数据集放在 Releases；解压到 `datasets/` 即可训练。
 
 | 数据集 | 类别 | 训练/验证/测试 | 大小 |
 |---|---|---|---|
