@@ -1,0 +1,50 @@
+/* ── 设计令牌 v4：「墨与靛」— 暖纸底 / 靛紫主色 / 柿橙点缀，去绿色 ── */
+:root {
+  /* 主色：靛紫 */
+  --indigo-50: #eef0fd;
+  --indigo-100: #e0e3fb;
+  --indigo-200: #c3c9f6;
+  --indigo-300: #9ba4ee;
+  --indigo-400: #737de4;
+  --indigo-500: #5a5fd8;
+  --indigo-600: #4a4ac2;
+  --indigo-700: #3d3a9e;
+  --indigo-800: #33307e;
+  --indigo-900: #26245c;
+
+  /* 辅色：柿橙 / 青 */
+  --persimmon: #e8590c;
+  --persimmon-bg: #fdeee3;
+  --teal: #0d9488;
+  --teal-bg: #e3f4f2;
+
+  /* 顶栏墨色 */
+  --ink-bar: #1d1f27;
+  --ink-bar-2: #14161c;
+
+  /* 中性 */
+  --bg: #f6f6f3;
+  --card: #ffffff;
+  --line: #e7e7e2;
+  --line-2: #d9d9d2;
+  --text: #20222b;
+  --text-2: #5b5f6e;
+  --text-3: #9094a2;
+
+  /* 语义 */
+  --amber: #b45309;
+  --amber-bg: #fdf1e0;
+  --red: #d13438;
+  --red-bg: #fcebeb;
+  --blue: #2563eb;
+  --blue-bg: #e8effd;
+  --violet: #7c3aed;
+  --violet-bg: #f2ecfd;
+
+  --radius: 16px;
+  --radius-sm: 11px;
+  --shadow: 0 1px 2px rgba(28, 30, 40, .04), 0 8px 24px -10px rgba(28, 30, 40, .12);
+  --shadow-lg: 0 12px 40px -10px rgba(28, 30, 40, .25);
+  --font: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+}

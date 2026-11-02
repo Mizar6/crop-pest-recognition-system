@@ -1,0 +1,41 @@
+# ---------- 依赖与构建产物 ----------
+node_modules/
+dist/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.idea/
+.vscode/
+*.log
+
+# ---------- 敏感信息（绝对不要提交） ----------
+.env
+server/.env
+*.key
+*.pem
+
+# ---------- 运行时产物 ----------
+uploads/
+server/uploads/
+server/static/
+server/data/datasets/
+server/data/train_runs/
+*.cache
+
+# ---------- 系统文件 ----------
+.DS_Store
+Thumbs.db
+
+# ---------- 训练历史输出（体积大） ----------
+train_project/runs/
+train_project/runs_retrain/
+train_project/weights_baseline/
+train_project/plantdiseases/labels/*.cache
+
+# ============================================================
+# 数据集默认提交（别人拉下来可直接训练）
+# 若想让仓库变轻，取消下面两行注释，把数据集改放 Release
+# ============================================================
+# datasets/plantdiseases-30类/images/
+# datasets/pest101-101类/

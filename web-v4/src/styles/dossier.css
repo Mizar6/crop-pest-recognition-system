@@ -1,0 +1,337 @@
+/* ============================================================
+   档案册 · 全站视觉层（dossier）
+   依据 design-system/PROPOSAL.md 的方向 A1：纸张、细线、等宽小标、赭红强调
+   只覆盖既有类名，不改页面结构
+   ============================================================ */
+
+:root {
+  --paper: #f5f2ea;
+  --paper-2: #fffdf8;
+  --ink: #1b1a15;
+  --ink-2: #4a473d;
+  --muted: #6f6c5f;
+  --faint: #8f8b7a;
+  --rule: #e2ddce;
+  --rule-soft: #efeadc;
+  --accent: #8c3a1e;
+  --accent-dark: #6f2d17;
+  --accent-soft: #f9f4e6;
+  --olive: #4c5b45;
+
+  /* 兼容原 token：把蓝色系整体换成赭红/橄榄 */
+  --indigo-50: #f9f4e6;
+  --indigo-100: #f1e7d3;
+  --indigo-300: #cfa992;
+  --indigo-400: #b0765a;
+  --indigo-500: #9a4a2a;
+  --indigo-600: #8c3a1e;
+  --indigo-700: #6f2d17;
+  --indigo-800: #57230f;
+  --text: var(--ink);
+  --text-2: var(--ink-2);
+  --text-3: var(--muted);
+  --line: var(--rule);
+  --line-soft: var(--rule-soft);
+  --radius: 0px;
+  --radius-sm: 0px;
+  --mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+body {
+  background: var(--paper) !important;
+  color: var(--ink);
+}
+
+/* ── 页头 ─────────────────────────────────── */
+.page { padding: 22px 26px 30px; }
+.page-head { margin-bottom: 18px; }
+.page-head h1 {
+  font-family: "Noto Serif SC", "Songti SC", serif;
+  font-size: 25px; font-weight: 700; letter-spacing: -.01em; color: var(--ink);
+}
+.page-head p { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+
+/* 每条页面标题下的粗黑线（保持既有 .rule 若存在） */
+.rule, .page-head + .rule { height: 2px; background: var(--ink); }
+
+/* ── 卡片 ─────────────────────────────────── */
+.card {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  box-shadow: none;
+}
+.card-pad { padding: 16px 18px; }
+.card-title {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px; font-weight: 600; color: var(--ink);
+  padding-bottom: 10px; margin-bottom: 12px;
+  border-bottom: 1px solid var(--rule-soft);
+}
+.card-title .sub {
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--muted); font-weight: 400;
+}
+
+/* ── 按钮 ─────────────────────────────────── */
+.btn {
+  border: 1px solid var(--rule);
+  background: var(--paper-2);
+  color: var(--ink-2);
+  border-radius: 0;
+  font-size: 12.5px;
+  transition: border-color .15s, color .15s, background .15s;
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+.btn.primary, .btn--primary {
+  background: var(--accent); border-color: var(--accent); color: #fff;
+}
+.btn.primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); color: #fff; }
+.btn.danger { color: var(--accent); border-color: #e3c9bd; }
+.btn.danger:hover { background: var(--accent-soft); }
+.btn.ghost { background: transparent; }
+
+/* ── 输入 ─────────────────────────────────── */
+.input, input.input, textarea, select {
+  border-radius: 0 !important;
+}
+.input, input.input {
+  border: 1px solid var(--rule);
+  background: #fff;
+  color: var(--ink);
+  font-size: 12.5px;
+}
+.input:focus, input.input:focus { border-color: var(--accent); outline: none; }
+
+/* ── 徽标 ─────────────────────────────────── */
+.badge {
+  border-radius: 0;
+  font-size: 10.5px;
+  padding: 1px 7px;
+  border: 1px solid var(--rule);
+  background: #fff;
+  color: var(--ink-2);
+}
+.badge.green { background: #eef6ef; border-color: #cfe2d2; color: var(--olive); }
+.badge.blue, .badge.indigo { background: var(--accent-soft); border-color: #e8cdbf; color: var(--accent); }
+.badge.red { background: #fbeee9; border-color: #e8c4b6; color: var(--accent); }
+.badge.gray, .badge.outline { background: #fff; border-color: var(--rule); color: var(--muted); }
+.badge.gold { background: #fdf6dc; border-color: #ecdfae; color: #7a6410; }
+
+/* ── 表格 ─────────────────────────────────── */
+.table { border-collapse: collapse; }
+.table th {
+  background: transparent;
+  border-bottom: 1px solid var(--ink);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+  padding: 8px 10px;
+}
+.table td {
+  border-bottom: 1px solid var(--rule-soft);
+  padding: 10px;
+  color: var(--ink-2);
+  font-size: 12.5px;
+}
+.table tbody tr:hover td { background: #f9f6ee; }
+
+/* ── 统计 ─────────────────────────────────── */
+.stats, .m-grid { gap: 0; }
+
+/* ── 代码/等宽 ────────────────────────────── */
+code, .mono, pre {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  background: #f4f0e5;
+  border: 1px solid var(--rule-soft);
+  padding: 1px 5px;
+  color: var(--ink-2);
+}
+
+/* ── 空态 ─────────────────────────────────── */
+.empty {
+  color: var(--muted);
+  font-size: 12.5px;
+  border: 1px dashed var(--rule);
+  background: var(--paper-2);
+  padding: 34px 20px;
+  text-align: center;
+}
+.empty .icon { font-size: 30px; opacity: .55; margin-bottom: 8px; }
+
+/* ── 顶部导航：保留深色，但收敛为墨黑 ──────── */
+.topbar {
+  background: #14130e !important;
+  border-bottom: 1px solid #2a2820;
+}
+.nav-item.active { background: var(--accent) !important; color: #fff !important; }
+.brand-mark { background: var(--accent) !important; }
+
+/* ── 分隔与留白 ───────────────────────────── */
+hr, .divider { border-color: var(--rule); }
+
+/* 滚动条低调些 */
+* { scrollbar-width: thin; scrollbar-color: #d9d3c3 transparent; }
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-thumb { background: #d9d3c3; }
+
+/* ── 顶栏改为纸质（与档案册统一）────────────── */
+.topbar {
+  background: var(--paper-2) !important;
+  border-bottom: 2px solid var(--ink) !important;
+  height: 58px !important;
+}
+.topbar .brand-text b {
+  font-family: "Noto Serif SC", "Songti SC", serif;
+  font-size: 15px; color: var(--ink) !important; letter-spacing: .01em;
+}
+.topbar .brand-text span {
+  font-family: var(--mono); font-size: 8.5px; letter-spacing: .18em;
+  text-transform: uppercase; color: var(--muted) !important;
+}
+.brand-mark {
+  background: var(--accent) !important;
+  font-family: "Noto Serif SC", serif;
+}
+.nav-item {
+  color: var(--ink-2) !important;
+  font-size: 12.5px !important;
+  border-bottom: 2px solid transparent;
+  border-radius: 0 !important;
+}
+.nav-item:hover { color: var(--accent) !important; background: transparent !important; }
+.nav-item.active {
+  background: transparent !important;
+  color: var(--accent) !important;
+  border-bottom-color: var(--accent);
+  font-weight: 600;
+}
+.health { color: var(--muted) !important; }
+.health span { font-family: var(--mono); font-size: 10px !important; letter-spacing: .1em; }
+.model-chip {
+  background: transparent !important;
+  border: 1px solid var(--rule) !important;
+  border-radius: 0 !important;
+  color: var(--muted) !important;
+  font-family: var(--mono); font-size: 10px !important;
+}
+
+/* ── 统计四格 → 档案条目 ─────────────────────── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-bottom: 2px solid var(--ink);
+}
+.stat, .stats > div {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 18px 20px;
+  border-right: 1px solid var(--rule-soft);
+}
+.stat:last-child, .stats > div:last-child { border-right: 0; }
+.stat i, .stat .icon { display: none; }
+.stat b, .stat strong {
+  font-family: "Noto Serif SC", "Songti SC", serif;
+  font-size: 30px; font-weight: 700; line-height: 1;
+  color: var(--ink); font-variant-numeric: tabular-nums;
+}
+.stat span, .stat small {
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+/* ── 列表与表格行加等宽编号 ─────────────────── */
+.table tbody { counter-reset: row; }
+.table tbody tr { counter-increment: row; }
+.table tbody td:first-child::before {
+  content: counter(row, decimal-leading-zero);
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em;
+  color: var(--faint); margin-right: 10px;
+}
+
+/* ── 分段控件（7天/14天 这类）────────────────── */
+.seg, .segmented, .tabs .tab {
+  border-radius: 0 !important;
+}
+.seg button.on, .tabs .tab.on {
+  background: var(--accent) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+/* ── 侧栏/分栏里的日期、时间统一等宽 ────────── */
+.time, .date, .sid {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: .06em;
+  color: var(--muted);
+}
+/* ── 列表 → 档案条目 ───────────────────────── */
+/* 表格第一列当编号，第二列当标题，其余当出处/元信息 */
+.table tbody td { vertical-align: middle; }
+.table tbody td:nth-child(2) {
+  font-family: "Noto Serif SC", "Songti SC", serif;
+  font-size: 13.5px;
+  color: var(--ink);
+}
+.table tbody td:nth-child(2) b,
+.table tbody td:nth-child(2) strong { font-weight: 600; }
+
+/* 行高加大，形成条目呼吸感 */
+.table tbody td { padding: 13px 10px; }
+.table tbody tr:last-child td { border-bottom: 1px solid var(--rule); }
+
+/* 缩略图统一成方形、细边 */
+.table tbody img,
+.table img.thumb {
+  width: 52px; height: 52px; object-fit: cover;
+  border: 1px solid var(--rule); border-radius: 0;
+}
+
+/* 图鉴卡片（若有） */
+.specimen, .entry-card {
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  padding: 16px 18px;
+}
+.specimen:hover, .entry-card:hover { border-color: var(--accent); }
+
+/* 筛选项与作物 chip */
+.chip {
+  border: 1px solid var(--rule);
+  background: #fff;
+  border-radius: 0;
+  font-size: 12px;
+  color: var(--ink-2);
+  padding: 4px 11px;
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.chip.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* 筛选栏 */
+.filter-bar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+/* 分页 */
+.pager button, .pagination button {
+  border: 1px solid var(--rule); background: #fff; border-radius: 0;
+  color: var(--ink-2); font-size: 12px;
+}
+.pager button:hover, .pagination button:hover { border-color: var(--accent); color: var(--accent); }
+.pager button.on, .pagination button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+/* 首列：编号与缩略图同一行，避免行高被撑成两行 */
+.table tbody td:first-child {
+  white-space: nowrap;
+  display: flex; align-items: center; gap: 10px;
+}
+.table tbody td:first-child::before {
+  margin-right: 0; flex: none;
+}
+.table tbody td:first-child img {
+  display: block; flex: none;
+}
