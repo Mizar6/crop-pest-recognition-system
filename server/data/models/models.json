@@ -4,34 +4,17 @@
       "id": "default",
       "name": "YOLO26s 病虫害检测模型",
       "file": "best.pt",
-      "path": "C:\\Users\\lucifer\\Desktop\\基于YOLO26的农作物病虫害叶片识别系统(FastAPI+Vue3)\\项目源码\\train_project\\runs_retrain\\yolo26s_cos120\\weights\\best.pt",
+      "path": "data/models/best.pt",
       "class_num": 30,
       "size_mb": 19.5,
       "added_at": "2026-10-31 06:06:15",
-      "note": "系统自带权重"
-    },
-    {
-      "id": "m1793469585",
-      "name": "测试模型2",
-      "file": "best.pt",
-      "path": "C:\\Users\\lucifer\\Desktop\\基于YOLO26的农作物病虫害叶片识别系统(FastAPI+Vue3)\\项目源码\\server\\data\\models\\m1793469585.pt",
-      "class_num": 30,
-      "class_sample": [
-        "苹果黑星病叶片",
-        "苹果健康叶片",
-        "苹果锈病叶片",
-        "甜椒健康叶片",
-        "甜椒叶斑病叶片",
-        "蓝莓叶片"
-      ],
-      "size_mb": 19.5,
-      "added_at": "2026-11-01 01:59:45"
+      "note": "系统自带权重（30 类作物病害）"
     },
     {
       "id": "mpest101",
       "name": "101 类农业害虫检测模型",
       "file": "mpest101.pt",
-      "path": "C:\\Users\\lucifer\\Desktop\\基于YOLO26的农作物病虫害叶片识别系统(FastAPI+Vue3)\\项目源码\\server\\data\\models\\mpest101.pt",
+      "path": "data/models/mpest101.pt",
       "class_num": 102,
       "size_mb": 19.5,
       "added_at": "2026-11-02 06:14:12",

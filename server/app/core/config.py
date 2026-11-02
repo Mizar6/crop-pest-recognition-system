@@ -32,7 +32,7 @@ class Settings:
     DB_NAME: str = os.getenv("DB_NAME", "db_plant_diseases")
 
     # --- 文件存储 ---
-    UPLOAD_ROOT: str = os.getenv("UPLOAD_ROOT", "D:/uploads45")
+    UPLOAD_ROOT: str = os.getenv("UPLOAD_ROOT", "uploads")
 
     # --- 模型 ---
     # 相对路径基于项目根目录解析，也可直接写绝对路径

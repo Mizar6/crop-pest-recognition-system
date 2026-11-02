@@ -1,4 +1,4 @@
-"""文件落盘工具，统一写入 D:/uploads45。"""
+"""文件落盘工具，统一写入环境变量 UPLOAD_ROOT 指定的目录（默认 server/uploads）。"""
 import uuid
 from datetime import datetime
 from pathlib import Path
