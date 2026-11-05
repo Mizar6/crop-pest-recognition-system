@@ -6,12 +6,17 @@ from typing import Optional
 
 from fastapi import UploadFile
 
-from app.core.config import settings
+from app.core.config import SERVER_DIR, settings
+
+# 上传根目录：配置成相对路径时按 server 目录解析，保证换台机器也能正确落盘
+UPLOAD_DIR = Path(settings.UPLOAD_ROOT)
+if not UPLOAD_DIR.is_absolute():
+    UPLOAD_DIR = (SERVER_DIR / UPLOAD_DIR).resolve()
 
 
 def ensure_upload_dirs() -> None:
     """启动时创建上传根目录及子目录。"""
-    root = Path(settings.UPLOAD_ROOT)
+    root = UPLOAD_DIR
     for name in ("avatar", "models", "images", "videos", "results", "frames"):
         (root / name).mkdir(parents=True, exist_ok=True)
 
@@ -20,7 +25,7 @@ def abs_path(relative: Optional[str]) -> Optional[Path]:
     """相对路径转绝对路径。"""
     if not relative:
         return None
-    return Path(settings.UPLOAD_ROOT) / relative.replace("\\", "/")
+    return UPLOAD_DIR / relative.replace("\\", "/")
 
 
 def save_upload(file: UploadFile, category: str, keep_name: Optional[str] = None) -> tuple[str, int]:
@@ -38,7 +43,7 @@ def save_upload(file: UploadFile, category: str, keep_name: Optional[str] = None
     suffix = Path(file.filename or "file.bin").suffix.lower()
     filename = keep_name if keep_name else f"{uuid.uuid4().hex}{suffix}"
     rel_dir = f"{category}/{day}"
-    dest_dir = Path(settings.UPLOAD_ROOT) / rel_dir
+    dest_dir = UPLOAD_DIR / rel_dir
     dest_dir.mkdir(parents=True, exist_ok=True)
     dest = dest_dir / filename
     size = 0
@@ -67,7 +72,7 @@ def save_bytes(data: bytes, category: str, suffix: str = ".jpg") -> str:
     day = datetime.now().strftime("%Y%m%d")
     filename = f"{uuid.uuid4().hex}{suffix}"
     rel_dir = f"{category}/{day}"
-    dest_dir = Path(settings.UPLOAD_ROOT) / rel_dir
+    dest_dir = UPLOAD_DIR / rel_dir
     dest_dir.mkdir(parents=True, exist_ok=True)
     dest = dest_dir / filename
     dest.write_bytes(data)
